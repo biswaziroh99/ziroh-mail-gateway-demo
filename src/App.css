@@ -1,38 +1,91 @@
-.App {
-  text-align: center;
+*{
+    margin: 0;
+    padding: 0;
 }
 
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+body{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+a{
+    text-decoration: none;
 }
 
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
-}
 
-.App-link {
-  color: #61dafb;
-}
+/*-------------Product card---------------*/
 
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.row{
+    width: 100%;
+    justify-content: space-between; 
+    margin-bottom: 40px;
+    display: flex;
+    flex-wrap: wrap;
+ }
+ .flex-box{
+    display: flex;
+    flex-wrap: wrap;
+}
+.col-4{
+    flex-basis: 24% !important;
+    min-width: 180px;
+}
+.p-b-20{
+    padding-bottom: 20px;
+}
+.shadow-box{
+    width: 100%;
+    box-shadow: 0 0 5px 1px rgba(0, 0, 0, 0.1);
+    padding: 10px;
+    height: 100%;
+}
+.shadow-box:hover{
+    box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.2);
+}
+.photo img{
+    width: 100%;
+}
+.discription h3{
+    font-size: 1.4vw;
+}
+.discription p{
+    color: #323232;
+    font-size: 1vw;
+}
+.m-t-10{
+    margin-top: 10px;
+}
+.price,.not-price,.off,.fd{
+    font-family: sans-serif;
+}
+.price{
+    color: black;
+    font-size: 1.2vw;
+}
+.not-price{
+    color: #777777;
+    font-size: 1vw;
+}
+.off{
+    color: rgb(1, 168, 1);
+    font-size: 1vw;
+    font-weight: bold;
+}
+.fd{
+    color: #666666;
+    margin-top: 5px;
+}
+.shadow-box .buttons button{
+    padding: 10px;
+    border-radius: 5px;
+    margin: 5px;
+    color: white;
+    border: none;
+}
+.shadow-box .buttons .add{
+    background-color: #f38d07;
+}
+.shadow-box .buttons .rem{
+    background-color: #ff4800;
 }
