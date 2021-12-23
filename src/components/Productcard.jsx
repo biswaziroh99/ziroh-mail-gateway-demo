@@ -1,7 +1,24 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import productOne from '../images/products/product-1.jpg';
 
 const Productcard = (props)=>{
+    
+    const [productId,setProductID] = useState();
+    useEffect(()=>{
+        setProductID(props.productId)   
+    },[]);
+    const [itemAddedToCart,setItemAddedToCart] = useState(false);
+    function handleClickAdd(e){
+        e.preventDefault();
+        setItemAddedToCart(true);
+        props.setCart([...props.cart,productId])
+    }
+    function handleClickRem(e){
+        e.preventDefault();
+        setItemAddedToCart(false);
+        const newCart = props.cart.filter((prodId) => prodId !== productId);
+        props.setCart(newCart);
+    }
     return(
         <div className="col-4 p-b-20">
             {/* <a href="#" className=""> */}
@@ -16,8 +33,7 @@ const Productcard = (props)=>{
                             className="off">33%</span></p>
                     </div>
                     <div className="buttons">
-                        <button className="add">Add to cart</button>
-                        <button className="rem">Remove from cart</button>
+                        {itemAddedToCart ? <button className="rem" onClick={handleClickRem}>Remove from cart</button> : <button className="add" onClick={handleClickAdd}>Add to cart</button>}
                     </div>
                 </div>
             {/* </a> */}

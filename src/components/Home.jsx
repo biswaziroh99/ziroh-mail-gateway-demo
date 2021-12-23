@@ -2,21 +2,28 @@ import React from "react";
 import Productcard from "./Productcard";
 import products from "../resource/product";
 
-const Home = ()=>{
+const Home = (props)=>{
     return(
         <>
-            <h1>This is Home</h1>
-            <div className="row flex-box">
-                {products.map((product,index)=>{
-                    return <Productcard
-                        key={index}
-                        id={index} 
-                        image={product.image}
-                        name={product.name}
-                        description={product.description}
-                        cost={product.cost}
-                    />
-                })}
+            <div className="container">
+                <div className="home-heading">
+                    <h1>Products listing</h1>
+                </div>
+                <div className="row flex-box">
+                    {Object.keys(products).map((prodId,index)=>{
+                        return <Productcard
+                            key={index}
+                            id={index} 
+                            image={products[prodId].image}
+                            name={products[prodId].name}
+                            description={products[prodId].description}
+                            cost={products[prodId].cost}
+                            productId={prodId}
+                            cart={props.cart}
+                            setCart={props.setCart}
+                        />
+                    })}
+                </div>
             </div>
         </>
     );

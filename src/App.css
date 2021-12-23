@@ -7,19 +7,87 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
+    background-color: #efefef;
 }
 
 a{
     text-decoration: none;
 }
 
+/*---------------Navbar--------------------*/
+.nav{
+    background-color: #047bd5 !important;
+    color: white;
+}
+.userImg img{
+    width: 30px;
+    border-radius: 50%;
+}
+.cartImg img{
+    width: 25px;
+}
+.profile-btn{
+    background-color: transparent;
+    border: none;
+}
+.profile-btn img{
+    width: 30px;
+    border-radius: 50%;
+}
+
+/*--------------Home-------------*/
+.home-heading{
+    margin: 40px 0;
+    text-align: center;
+}
+
+/*---------------Profile------------------*/
+.profile-box{
+    width: 380px;
+    padding: 0px;
+    text-align: center;
+    background-color: white;
+    box-shadow: rgba(0, 0, 0, 0.05) 0px 0px 0px 1px, rgb(209, 213, 219) 0px 0px 0px 1px inset;
+    border-radius: 10px;
+    float: right;
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    z-index: 1;
+}
+.profile-info{
+    padding: 40px 0;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+.profile-info img{
+    width: 100px;
+    border-radius: 50%;
+}
+.profile-info p{
+    margin: 0;
+}
+.signout-btn{
+    padding: 20px 0;
+    border-bottom: 1px solid rgb(226, 226, 226);
+}
+.signout-btn button{
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+}
+.services{
+    padding: 10px 0;
+}
+.services a{
+    font-size: 0.8rem;
+    color: rgb(102, 102, 102);
+}
 
 /*-------------Product card---------------*/
-
 .row{
     width: 100%;
     justify-content: space-between; 
-    margin-bottom: 40px;
+    margin-bottom: 60px;
     display: flex;
     flex-wrap: wrap;
  }
@@ -89,3 +157,132 @@ a{
 .shadow-box .buttons .rem{
     background-color: #ff4800;
 }
+
+/*------------------Cart-start------------------*/
+
+.cart-container{
+    width: 100%;
+    padding: 40px;
+    background-color: #efefef;
+    justify-content: space-between;
+}
+.all-items-container{
+    flex-basis: 70%;
+    background-color: #ffffff;
+    border: 1px solid #e0e0e0;
+}
+.mycart{
+    padding: 20px ;
+    border-bottom: 3px solid #efefef;
+}
+.mycart h2{  
+    display: inline-block;
+}
+.bill-place-order{
+    flex-basis: 28%;
+    height: fit-content;
+    background-color: #ffffff;
+    position: sticky;
+    top: 50px;
+}
+.items{
+    width: 100%;
+    padding: 20px 10px;
+    border-bottom: 5px solid #efefef;
+}
+.item-img{
+    flex-basis: 20%;
+    padding: 10px;
+    border-right: 1px solid #c4c3c3;
+}
+.item-details{
+    flex-basis: 65%;
+    flex-direction: column;
+    justify-content: space-between;
+    padding: 10px 0 10px 20px;
+}
+.item-details h3{
+    color: #3d3d3d;
+    font-family: poppins;
+}
+.item-details p{
+    line-height: 1.5;
+    font-size: 14px;
+}
+.item-img img{
+    width: 100%;
+}
+.price{
+    font-size: 18px;
+    font-weight: bold;
+    margin-right: 10px;
+}
+.not-price{
+    margin-right: 10px;
+    color: #3d3d3d;
+}
+.off{
+    color: rgb(1, 168, 1);
+    margin-right: 10px;
+}
+.fd{
+    font-size: 14px;
+}
+#discount{
+    color: rgb(1, 168, 1);
+}
+.bill-head{
+    padding: 15px;
+    justify-content: space-between;
+    border-bottom: 1px solid #dfdfdf;
+}
+.bill-body{
+    padding: 15px;
+}
+.value{
+    float: right;
+}
+.details{
+    margin: 20px 0;
+}
+.bill-bottom{
+    padding: 25px 15px;
+    color: #3d3d3d;
+    border-top: 1px solid #dfdfdf;
+    border-bottom: 1px solid #dfdfdf;
+}
+.bill-bottom .key{
+    font-size: 16px;
+    font-weight: bold;
+}
+#total{
+    font-size: 18px;
+    font-weight: bold;
+}
+.place-order{
+    width: 100%;
+    background-color: #efefef;
+    padding-top: 20px;
+}
+.place-btn{
+    width: 100%;
+    -webkit-border-radius: 2;
+    -moz-border-radius: 2;
+    border-radius: 2px;
+    font-family: poppins;
+    color: #ffffff;
+    font-size: 23px;
+    background: #e64a0c;
+    padding: 10px 20px 10px 20px;
+    text-decoration: none;
+    border: none;
+    outline: none;
+}
+      
+.place-btn:hover {
+    background: #b1390a;
+    text-decoration: none;
+    cursor: pointer;
+}
+
+/*------------------Cart-End------------------*/
