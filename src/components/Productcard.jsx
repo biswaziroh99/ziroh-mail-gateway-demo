@@ -1,21 +1,23 @@
 import React, { useEffect, useState } from "react";
+import products from "../resource/product";
 import productOne from '../images/products/product-1.jpg';
 
 const Productcard = (props)=>{
-    
+    // const [itemAddedToCart,setItemAddedToCart] = useState(false);
     const [productId,setProductID] = useState();
     useEffect(()=>{
-        setProductID(props.productId)   
+        setProductID(props.productId);   
     },[]);
-    const [itemAddedToCart,setItemAddedToCart] = useState(false);
     function handleClickAdd(e){
         e.preventDefault();
-        setItemAddedToCart(true);
-        props.setCart([...props.cart,productId])
+        // setItemAddedToCart(true);
+        products[props.productId].inCart = true;
+        props.setCart([...props.cart,productId]);
     }
     function handleClickRem(e){
         e.preventDefault();
-        setItemAddedToCart(false);
+        // setItemAddedToCart(false);
+        products[props.productId].inCart = false;
         const newCart = props.cart.filter((prodId) => prodId !== productId);
         props.setCart(newCart);
     }
@@ -24,7 +26,7 @@ const Productcard = (props)=>{
             {/* <a href="#" className=""> */}
                 <div className="shadow-box">
                     <div className="photo">
-                        <img src={props.image} alt=""/>
+                        <img src= {props.image} alt=""/>
                     </div>
                     <div className="discription">
                         <h3>{props.name}</h3>
@@ -33,7 +35,7 @@ const Productcard = (props)=>{
                             className="off">33%</span></p>
                     </div>
                     <div className="buttons">
-                        {itemAddedToCart ? <button className="rem" onClick={handleClickRem}>Remove from cart</button> : <button className="add" onClick={handleClickAdd}>Add to cart</button>}
+                        {products[props.productId].inCart ? <button className="rem" onClick={handleClickRem}>Remove from cart</button> : <button className="add" onClick={handleClickAdd}>Add to cart</button>}
                     </div>
                 </div>
             {/* </a> */}

@@ -7,7 +7,7 @@ body{
     margin: 0;
     padding: 0;
     box-sizing: border-box;
-    background-color: #efefef;
+    /* background-color: #efefef; */
 }
 
 a{
@@ -34,7 +34,18 @@ a{
     width: 30px;
     border-radius: 50%;
 }
-
+.cart-num{
+    padding: 1px 5px;
+    border: none;
+    color: #ffffff;
+    font-size: 12px;
+    border-radius: 50%;
+    background-color: #ff4800;
+    position: relative;
+    right: 4px;
+    bottom: 8px;
+    z-index: 1;
+}
 /*--------------Home-------------*/
 .home-heading{
     margin: 40px 0;
@@ -170,6 +181,9 @@ a{
     flex-basis: 70%;
     background-color: #ffffff;
     border: 1px solid #e0e0e0;
+}
+.empty-cart{
+    margin: 20px 20px;
 }
 .mycart{
     padding: 20px ;
