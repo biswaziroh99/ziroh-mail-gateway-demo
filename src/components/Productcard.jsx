@@ -18,7 +18,9 @@ const Productcard = (props) => {
     e.preventDefault();
     // setItemAddedToCart(false);
     products[props.productId].inCart = false;
-    const newCart = props.cart.filter((prodId) => prodId !== productId);
+    const newCart = props.cart.filter(
+      (prodId) => prodId.productId !== productId
+    );
     props.setCart(newCart);
   }
   return (
