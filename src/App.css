@@ -10,6 +10,17 @@ body {
   /* background-color: #efefef; */
 }
 
+html,
+body,
+.App {
+  width: 100%;
+  height: 100%;
+}
+
+.App {
+  background: #e8e7e7;
+}
+
 a {
   text-decoration: none;
 }
@@ -130,7 +141,7 @@ a {
   height: 100%;
 }
 .shadow-box:hover {
-  box-shadow: 0 0 7px 3px rgba(0, 0, 0, 0.2);
+  box-shadow: 13px 13px 26px #cecece, -13px -13px 26px #ffffff;
 }
 .photo img {
   width: 100%;
@@ -315,4 +326,48 @@ a {
 .d-flex {
   align-items: center;
   gap: 10px;
+}
+
+/* -----------------Custom-Style----------------------- */
+.shadow-box {
+  border-radius: 50px;
+  background: linear-gradient(125deg, #f0f0f0, #e7e5e5);
+  box-shadow: 6px 6px 12px #d7d7d7, -6px -6px 12px #ffffff;
+}
+
+.photo img {
+  border-radius: 50px;
+  background: #f8f9fa;
+  box-shadow: inset 50px 50px 100px #bebebe, inset -50px -50px 100px #ffffff;
+}
+
+.discription h3 {
+  text-align: center;
+  font-size: 1.1rem;
+  color: #65768b;
+}
+
+.discription p {
+  text-align: center;
+  color: #65768b;
+}
+
+.buttons {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.shadow-box .buttons button {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #f8f7f7, #d1d0d0);
+  box-shadow: 14px 14px 28px #b7b6b6, -14px -14px 28px #ffffff;
+  color: #65768b;
+  font-weight: 600;
+}
+
+.shadow-box .buttons button:active {
+  border-radius: 50px;
+  background: linear-gradient(145deg, #d1d0d0, #f8f7f7);
+  box-shadow: 6px 6px 0px #e6e5e5, -6px -6px 0px #eae9e9;
 }
