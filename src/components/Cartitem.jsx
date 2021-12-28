@@ -7,7 +7,7 @@ const Cartitem = (props) => {
     setQuantity(quantity + 1);
     props.cart.map((product) => {
       if (product.productId === props.productId) {
-        product.quantity = quantity;
+        product.quantity = quantity + 1;//--------------------->invoice quantity problem solved
         let newPrice = props.price;
         newPrice += products[product.productId].cost;
         props.setPrice(newPrice);
@@ -20,7 +20,7 @@ const Cartitem = (props) => {
       setQuantity(quantity - 1);
       props.cart.map((product) => {
         if (product.productId === props.productId) {
-          product.quantity = quantity;
+          product.quantity = quantity - 1;//--------------------->invoice quantity problem solved
           let newPrice = props.price;
           newPrice -= products[product.productId].cost;
           props.setPrice(newPrice);
