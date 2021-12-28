@@ -73,6 +73,7 @@ const Cart = (props) => {
           })}
         </div>
         <Cartcheckout
+          items={props.cart.length}
           price={price}
           check={props.check}
           cart={props.cart}

@@ -21,7 +21,7 @@ const Cartcheckout = (props) => {
             <div class="details">
               <div class="key">
                 Items:
-                <span class="value" id="numItems"></span>
+                <span class="value" id="numItems">{props.items}</span>
               </div>
             </div>
             <div class="details">
@@ -48,7 +48,9 @@ const Cartcheckout = (props) => {
           <div class="bill-bottom">
             <div class="key">
               <strong>Total Amount:</strong>
-              <span class="value" id="total"></span>
+              <span class="value" id="total">
+                {props.price}
+              </span>
             </div>
           </div>
         </div>
