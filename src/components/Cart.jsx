@@ -79,7 +79,7 @@ const Cart = (props) => {
           handleCheckout={handleCheckout}
         />
         {props.cart.length && (
-          <div className="card w-100">
+          <div className="card ">
             <div className="card-header">Invoice</div>
 
             <table className="table" id="chk">
