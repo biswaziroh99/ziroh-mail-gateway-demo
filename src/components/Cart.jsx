@@ -9,6 +9,12 @@ const Cart = (props) => {
   const handleCheckout = () => {
     const element = document.querySelector("#chk");
     var pdf = new jsPDF("landscape", "pt", "A4");
+    // var pdf = new jsPDF('p', 'in', [612, 792]);
+    // var pdf = new jsPDF({
+    //   orientation: "landscape",
+    //   unit: "px",
+    //   format: [1280,800]
+    // });
     console.log(element);
 
     console.log(pdf);

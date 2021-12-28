@@ -57,6 +57,10 @@ a {
   bottom: 8px;
   z-index: 1;
 }
+#chk{
+  width: 841px !important;
+  padding: 20px !important;
+}
 /*--------------Home-------------*/
 .home-heading {
   margin: 40px 0;
