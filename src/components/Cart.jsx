@@ -3,28 +3,28 @@ import products from "../resource/product";
 import Cartitem from "./Cartitem";
 import Cartcheckout from "./Cartcheckout";
 import jsPDF from "jspdf";
+import html2canvas from "html2canvas";
+// window.html2canvas = html2canvas;
 
 const Cart = (props) => {
   const [price, setPrice] = useState(0);
   const handleCheckout = () => {
-    const element = document.querySelector("#chk");
-    var pdf = new jsPDF("landscape", "pt", "A4");
-    // var pdf = new jsPDF('p', 'in', [612, 792]);
-    // var pdf = new jsPDF({
-    //   orientation: "landscape",
-    //   unit: "px",
-    //   format: [1280,800]
+    const element = document.querySelector("#chk")  ;
+    // var pdf = new jsPDF("landscape", "pt", "A4");
+    // var pdf = new jsPDF('l', 'in', [612, 792]);
+    // pdf.html(element, {
+    //   callback: (pdf) => {
+    //     pdf.save("test.pdf");
+    //   },
     // });
-    console.log(element);
-
-    console.log(pdf);
-
-    pdf.html(element, {
-      callback: () => {
-        pdf.save("test.pdf");
-      },
+    html2canvas(element).then(canvas => {
+      const imgData = canvas.toDataURL("image/png");
+      const pdf = new jsPDF();
+      pdf.addImage(imgData, "JPEG", 10, 10);
+      pdf.save('test.pdf');
     });
   };
+
   function totalPrice(prodId) {
     let calPrice = 0;
     for (let i = 0; i < props.cart.length; i++) {

@@ -3,11 +3,11 @@ import { propTypes } from "react-bootstrap/esm/Image";
 import products from "../resource/product";
 
 const Cartcheckout = (props) => {
-  const handleCheckout = () => {
-    if (props.check) {
-      props.setCreateTable(true);
-    }
-  };
+  // const handleCheckout = () => {
+  //   if (props.check) {
+  //     props.setCreateTable(true);
+  //   }
+  // };
   return (
     <div class="bill-place-order">
       <div class="bill-area">
