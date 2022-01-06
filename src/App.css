@@ -30,6 +30,9 @@ a {
   background-color: #047bd5 !important;
   color: white;
 }
+.navbar-brand img{
+  width: 200px;
+}
 .userImg img {
   width: 30px;
   border-radius: 50%;
@@ -57,16 +60,22 @@ a {
   bottom: 8px;
   z-index: 1;
 }
-#chk{
-  width: 575px !important;
-  padding: 20px !important;
-}
+
 /*--------------Home-------------*/
 .home-heading {
   margin: 40px 0;
   text-align: center;
 }
-
+.home-heading h1{
+  font-family: 'Ubuntu', sans-serif;
+}
+.home-heading hr{
+  width: 100px;
+  margin: 10px auto 20px auto;
+  border: none;
+  height: 20px;
+  background-color: #047bd5; 
+}
 /*---------------Profile------------------*/
 .profile-box {
   width: 380px;
@@ -96,12 +105,25 @@ a {
 .signout-btn {
   padding: 20px 10px;
   border-bottom: 1px solid rgb(226, 226, 226);
-  display: flex;
+  /* display: flex; */
   align-items: center;
   justify-content: center;
   gap: 10px;
 }
-
+.signout-btn label{
+  margin-left: 5px;
+}
+.signout-btn label:hover{
+  cursor: pointer;
+}
+#download-btn{
+  margin-top: 10px;
+  background-color: #4361ee;
+  color: #fff;
+}
+#download-btn:hover{
+  background-color: #3658ee;
+}
 .signout-btn input {
   cursor: pointer;
 }
@@ -224,6 +246,7 @@ a {
   flex-basis: 28%;
   height: fit-content;
   background-color: #ffffff;
+  position: sticky;
   top: 50px;
 }
 .items {
@@ -244,7 +267,6 @@ a {
 }
 .item-details h3 {
   color: #3d3d3d;
-  font-family: poppins;
 }
 .item-details p {
   line-height: 1.5;
@@ -310,7 +332,6 @@ a {
   -webkit-border-radius: 2;
   -moz-border-radius: 2;
   border-radius: 2px;
-  font-family: poppins;
   color: #ffffff;
   font-size: 23px;
   background: #e64a0c;
@@ -324,6 +345,66 @@ a {
   background: #b1390a;
   text-decoration: none;
   cursor: pointer;
+}
+
+/*------------------Invoice-Style--------------*/
+
+.invoice-container{
+  /* display: none; */
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100vh;
+  background-color: rgb(189, 189, 189,0.5);
+  z-index: 1;
+}
+.invoice-container span{
+  padding: 2px 7px;
+  border: 2px solid black;
+  float: right;
+  cursor: pointer;
+  position: sticky;
+  top: 0;
+}
+.invoice-card{
+  width: 595px !important;
+  padding: 10px;
+  margin: 150px auto !important;
+}
+#chk{
+  width: 575px !important;
+  padding: 20px !important;
+  opacity: 1 !important;
+}
+.invoice-container button{
+  margin-top: 10px;
+  width: 100%;
+  -webkit-border-radius: 2;
+  -moz-border-radius: 2;
+  border-radius: 2px;
+  color: #ffffff;
+  font-size: 23px;
+  background: #fa500d;
+  padding: 10px 20px 10px 20px;
+  text-decoration: none;
+  border: none;
+  outline: none;
+}
+.invoice-container button:hover{
+  background: #f34500;
+}
+.invoice{
+  all:revert;
+}
+.user-details{
+  display: flex;
+  font-size: 12px;
+  justify-content: space-between;
+  padding: 20px;
+  background-color: #e0e0e0;
+}
+.user-details div{
+  display: inline;
 }
 
 /*------------------Cart-End------------------*/
@@ -340,7 +421,8 @@ a {
 }
 
 .photo img {
-  border-radius: 50px;
+  margin-bottom: 10px;
+  border-radius: 50px 50px 10px 10px;
   background: #f8f9fa;
   box-shadow: inset 50px 50px 100px #bebebe, inset -50px -50px 100px #ffffff;
 }

@@ -55,7 +55,6 @@ const Cartcheckout = (props) => {
           </div>
         </div>
       </div>
-
       <div class="place-order">
         <button href="" class="place-btn" onClick={props.handleCheckout}>
           Checkout

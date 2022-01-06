@@ -2,27 +2,40 @@ import React, { useEffect, useState } from "react";
 import products from "../resource/product";
 import Cartitem from "./Cartitem";
 import Cartcheckout from "./Cartcheckout";
+import Invoice from "./invoice";
 import jsPDF from "jspdf";
 import html2canvas from "html2canvas";
 // window.html2canvas = html2canvas;
 
 const Cart = (props) => {
+
+  const [invoice,setInvoice] = useState(false);
   const [price, setPrice] = useState(0);
-  const handleCheckout = () => {
-    const element = document.querySelector("#chk")  ;
-    // var pdf = new jsPDF("landscape", "pt", "A4");
-    // var pdf = new jsPDF('l', 'in', [612, 792]);
-    // pdf.html(element, {
-    //   callback: (pdf) => {
-    //     pdf.save("test.pdf");
-    //   },
-    // });
+  const handleCheckout = () => { props.cart.length >= 1 ? setInvoice(true) : alert("Your cart is empty!")}
+  const handlePayNow = () => {
+    const element = document.querySelector("#chk");
     html2canvas(element).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
       pdf.addImage(imgData, "JPEG", 10, 10);
-      pdf.save('test.pdf');
-    });
+      // pdf.save('test.pdf');
+      var formdata = new FormData();
+      const fileInput = new File([pdf.output('blob')],'invoice.pdf');
+      formdata.append("jsonData",JSON.stringify({to:['biswajit.chanda@ziroh.com'],subject: 'gatewaytest', body:element.innerHTML}));
+      formdata.append("file", fileInput);
+      console.log(pdf);
+      console.log(formdata);
+      var requestOptions = {
+        method: 'POST',
+        body: formdata,
+        redirect: 'follow'
+      };
+      
+      fetch("http://34.222.18.30:8090/omail/gateway/send", requestOptions)
+        .then(response => response.text())
+        .then(result => console.log(result))
+        .catch(error => console.log('error', error)); 
+    }).catch((err)=>console.log(err));
   };
 
   function totalPrice(prodId) {
@@ -79,40 +92,12 @@ const Cart = (props) => {
           cart={props.cart}
           handleCheckout={handleCheckout}
         />
-        {props.cart.length && (
-          <div className="card ">
-            <div className="card-header">Invoice</div>
-
-            <table className="table" id="chk">
-              <thead className="table-dark">
-                <tr>
-                  <th scope="col">#</th>
-                  <th scope="col">Product Name</th>
-                  <th scope="col">Quantity</th>
-                  <th scope="col">Cost</th>
-                </tr>
-              </thead>
-              <tbody>
-                {props.cart.map((prods, index) => {
-                  return (
-                    <tr>
-                      <th scope="row">{index}</th>
-                      <td>{products[prods.productId].name}</td>
-                      <td>{prods.quantity}</td>
-                      <td>{products[prods.productId].cost}</td>
-                    </tr>
-                  );
-                })}
-                <tr>
-                  <th scope="row" colSpan={3}>
-                    Total Amount
-                  </th>
-                  <td>{price}</td>
-                </tr>
-              </tbody>
-            </table>
-          </div>
-        )}
+      </div>
+      <div className="invoice-container" style={{display: invoice ? 'block' : 'none'}} onClick={()=>{
+        setInvoice(false);
+      }}>
+        <span>X</span>
+          <Invoice  cart={props.cart} price={price} handlePayNow={handlePayNow} />
       </div>
     </>
   );

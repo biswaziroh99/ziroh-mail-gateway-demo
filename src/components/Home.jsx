@@ -7,7 +7,8 @@ const Home = (props)=>{
         <>
             <div className="container">
                 <div className="home-heading">
-                    <h1>Products listing</h1>
+                    <h1>Products Listing</h1>
+                    <hr/>
                 </div>
                 <div className="row flex-box">
                     {Object.keys(products).map((prodId,index)=>{

@@ -13,11 +13,15 @@ const Profile = (props) => {
         </div>
         <div className="signout-btn">
           <input
+            id="encrypted"
             type="checkbox"
             checked={props.check}
             onClick={() => props.setCheck(!props.check)}
           />
-          <span>MK's Product</span>
+          <label htmlFor="encrypted">Encrypted Invoice</label>
+          {/* <span>Encrypted Invoice</span> */}
+          <br/>  
+          {props.check ? <button id="download-btn">Download Omail App</button> : null}
         </div>
         <div className="signout-btn">
           <button>Sign out</button>
