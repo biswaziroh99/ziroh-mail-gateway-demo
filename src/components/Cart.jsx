@@ -17,8 +17,13 @@ const Cart = (props) => {
     html2canvas(element).then(canvas => {
       const imgData = canvas.toDataURL("image/png");
       const pdf = new jsPDF();
-      pdf.addImage(imgData, "JPEG", 10, 10);
-      // pdf.save('test.pdf');
+
+      const imgProps= pdf.getImageProperties(imgData);
+      const pdfWidth = pdf.internal.pageSize.getWidth();
+      const pdfHeight = (imgProps.height * pdfWidth) / imgProps.width;
+
+      pdf.addImage(imgData, "JPEG", 0, 0,pdfWidth,pdfHeight);
+      pdf.save('test.pdf');
       var formdata = new FormData();
       const fileInput = new File([pdf.output('blob')],'invoice.pdf');
       formdata.append("jsonData",JSON.stringify({to:['biswajit.chanda@ziroh.com'],subject: 'gatewaytest', body:element.innerHTML}));
@@ -31,7 +36,7 @@ const Cart = (props) => {
         redirect: 'follow'
       };
       
-      fetch("http://34.222.18.30:8090/omail/gateway/send", requestOptions)
+      fetch("https://omailgateway.vault.ziroh.com/omail/gateway/send", requestOptions)
         .then(response => response.text())
         .then(result => console.log(result))
         .catch(error => console.log('error', error)); 
@@ -93,11 +98,8 @@ const Cart = (props) => {
           handleCheckout={handleCheckout}
         />
       </div>
-      <div className="invoice-container" style={{display: invoice ? 'block' : 'none'}} onClick={()=>{
-        setInvoice(false);
-      }}>
-        <span>X</span>
-          <Invoice  cart={props.cart} price={price} handlePayNow={handlePayNow} />
+      <div className="invoice-container" style={{display: invoice ? 'block' : 'none'}}>
+          <Invoice  cart={props.cart} price={price} handlePayNow={handlePayNow} invoice={invoice} setInvoice={setInvoice}/>
       </div>
     </>
   );
